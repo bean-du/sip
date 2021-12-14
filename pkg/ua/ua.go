@@ -131,13 +131,13 @@ func (ua *UserAgent) Invite(profile *account.Profile, target sip.Uri, recipient 
 func (ua *UserAgent) InviteWithContext(ctx context.Context, profile *account.Profile, target sip.Uri, recipient sip.SipUri, body *string) (*session.Session, error) {
 
 	from := &sip.Address{
-		DisplayName: sip.String{Str: profile.DisplayName},
-		Uri:         profile.URI,
-		Params:      sip.NewParams().Add("tag", sip.String{Str: util.RandString(8)}),
+		//DisplayName: sip.String{Str: profile.DisplayName},
+		Uri:    profile.URI,
+		Params: sip.NewParams().Add("tag", sip.String{Str: util.RandString(8)}),
 	}
 
 	contact := profile.Contact()
-
+	contact.Params = nil
 	to := &sip.Address{
 		Uri: target,
 	}
@@ -154,7 +154,7 @@ func (ua *UserAgent) InviteWithContext(ctx context.Context, profile *account.Pro
 		subject := sip.Subject{
 			Sender:                 recipient.FUser.String(),
 			SenderEndpointSerial:   0,
-			Receiver:               recipient.FUser.String(),
+			Receiver:               profile.AuthInfo.AuthUser,
 			ReceiverEndpointSerial: 0,
 		}
 		(*request).AppendHeader(&contentType)
