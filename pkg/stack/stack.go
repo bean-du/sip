@@ -372,11 +372,16 @@ func (s *SipStack) prepareRequest(req sip.Request) sip.Request {
 		if !viaHop.Params.Has("branch") {
 			viaHop.Params.Add("branch", sip.String{Str: sip.GenerateBranch()})
 		}
+		if !viaHop.Params.Has("rport") {
+			viaHop.Params.Add("rport", sip.String{Str: ""})
+		}
 	} else {
 		viaHop = &sip.ViaHop{
 			ProtocolName:    "SIP",
 			ProtocolVersion: "2.0",
+
 			Params: sip.NewParams().
+				Add("rport", sip.String{Str: ""}).
 				Add("branch", sip.String{Str: sip.GenerateBranch()}),
 		}
 
