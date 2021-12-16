@@ -249,7 +249,7 @@ func (s *Session) Bye() {
 	if b {
 		req.AppendHeader(&sip.GenericHeader{
 			HeaderName: "Record-Route",
-			Contents: contact.String(),
+			Contents: contact.Value(),
 		})
 	}
 
