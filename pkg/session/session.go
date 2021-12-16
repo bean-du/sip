@@ -245,7 +245,7 @@ func (s *Session) Bye() {
 	method := sip.BYE
 	req := s.makeRequest(s.uaType, method, sip.MessageID(s.callID), s.request, s.response)
 
-	contact, _ := s.request.Contact()
+	contact, _ := s.response.Contact()
 	req.AppendHeader(&sip.GenericHeader{
 		HeaderName: "Record-Route",
 		Contents: contact.String(),
