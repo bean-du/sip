@@ -2,6 +2,7 @@ package session
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"sync"
 
@@ -241,19 +242,28 @@ func (s *Session) ReInvite() {
 }
 
 //Bye send Bye request.
-func (s *Session) Bye() {
+func (s *Session) Bye() error {
 	method := sip.BYE
 	req := s.makeRequest(s.uaType, method, sip.MessageID(s.callID), s.request, s.response)
 
-	contact, b := s.response.Contact()
-	if b {
-		req.AppendHeader(&sip.GenericHeader{
-			HeaderName: "Record-Route",
-			Contents: contact.Value(),
-		})
+	if req == nil {
+		return errors.New("can not find remote contact to build request")
 	}
-
+	headers := s.response.Headers()
+	var (
+		route *sip.RouteHeader
+	)
+	for _, header := range headers {
+		if header.Name() == "Record-Route" {
+			h := header.(*sip.RecordRouteHeader)
+			route = &sip.RouteHeader{
+				Addresses: h.Addresses,
+			}
+		}
+	}
+	req.AppendHeader(route)
 	s.sendRequest(req)
+	return nil
 }
 
 func (s *Session) sendRequest(req sip.Request) (sip.Response, error) {
@@ -372,10 +382,23 @@ func (s *Session) Provisional(statusCode sip.StatusCode, reason string) {
 }
 
 func (s *Session) makeRequest(uaType string, method sip.RequestMethod, msgID sip.MessageID, inviteRequest sip.Request, inviteResponse sip.Response) sip.Request {
+	var (
+		targetAddr sip.Uri
+	)
+
+	targetAddr = s.remoteTarget
+	if method == sip.BYE {
+		target, ok := s.response.Contact()
+		if !ok {
+			return nil
+		}
+		targetAddr = target.Address
+	}
+
 	newRequest := sip.NewRequest(
 		msgID,
 		method,
-		s.remoteTarget,
+		targetAddr,
 		inviteRequest.SipVersion(),
 		[]sip.Header{},
 		"",
