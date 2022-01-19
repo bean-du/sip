@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/bean-du/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/log"
 )
 
 // Response RFC 3261 - 7.2.

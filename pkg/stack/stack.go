@@ -10,14 +10,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bean-du/sip/pkg/auth"
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/transaction"
-	"github.com/bean-du/sip/pkg/transport"
-	"github.com/bean-du/sip/pkg/util"
-	"github.com/bean-du/sip/pkg/utils"
 	"github.com/tevino/abool"
+	"github.com/vsmcn/sip/pkg/auth"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/transaction"
+	"github.com/vsmcn/sip/pkg/transport"
+	"github.com/vsmcn/sip/pkg/util"
+	"github.com/vsmcn/sip/pkg/utils"
 )
 
 const (

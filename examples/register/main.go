@@ -6,13 +6,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/bean-du/sip/pkg/account"
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/media/rtp"
-	"github.com/bean-du/sip/pkg/sip/parser"
-	"github.com/bean-du/sip/pkg/stack"
-	"github.com/bean-du/sip/pkg/ua"
-	"github.com/bean-du/sip/pkg/utils"
+	"github.com/vsmcn/sip/pkg/account"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/media/rtp"
+	"github.com/vsmcn/sip/pkg/sip/parser"
+	"github.com/vsmcn/sip/pkg/stack"
+	"github.com/vsmcn/sip/pkg/ua"
+	"github.com/vsmcn/sip/pkg/utils"
 )
 
 var (

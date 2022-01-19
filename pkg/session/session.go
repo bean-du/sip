@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/util"
-	"github.com/bean-du/sip/pkg/utils"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/util"
+	"github.com/vsmcn/sip/pkg/utils"
 )
 
 type RequestCallback func(ctx context.Context, request sip.Request, authorizer sip.Authorizer, waitForResult bool, attempt int) (sip.Response, error)

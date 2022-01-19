@@ -7,7 +7,7 @@ import (
 
 	uuid "github.com/satori/go.uuid"
 
-	"github.com/bean-du/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/log"
 )
 
 // A representation of a SIP method.

@@ -6,8 +6,8 @@ import (
 
 	"github.com/discoviking/fsm"
 
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/sip"
 )
 
 type TxKey = sip.TransactionKey

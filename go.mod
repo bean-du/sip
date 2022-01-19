@@ -1,4 +1,4 @@
-module github.com/bean-du/sip
+module github.com/vsmcn/sip
 
 go 1.13
 

@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/bean-du/sip/pkg/transport"
+	"github.com/vsmcn/sip/pkg/transport"
 )
 
 var (

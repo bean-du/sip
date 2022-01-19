@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/bean-du/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/log"
 )
 
 // Request RFC 3261 - 7.1.

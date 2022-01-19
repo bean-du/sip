@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/transport"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/transport"
 )
 
 // MemoryRegistry Address-of-Record registry using memory.

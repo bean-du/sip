@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/bean-du/sip/pkg/util"
+	"github.com/vsmcn/sip/pkg/util"
 )
 
 const (

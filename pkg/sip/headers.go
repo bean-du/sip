@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/bean-du/sip/pkg/util"
+	"github.com/vsmcn/sip/pkg/util"
 )
 
 // SIP Headers structs

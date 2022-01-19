@@ -9,9 +9,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/bean-du/sip/examples/b2bua/b2bua"
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/utils"
+	"github.com/vsmcn/sip/examples/b2bua/b2bua"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/utils"
 	"github.com/c-bata/go-prompt"
 )
 

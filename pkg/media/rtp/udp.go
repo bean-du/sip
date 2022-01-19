@@ -3,8 +3,8 @@ package rtp
 import (
 	"net"
 
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/utils"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/utils"
 )
 
 const (

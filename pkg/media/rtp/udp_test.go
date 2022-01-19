@@ -5,7 +5,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/bean-du/sip/pkg/media/rtp"
+	"github.com/vsmcn/sip/pkg/media/rtp"
 
 	"github.com/ghettovoice/gosip/log"
 	"github.com/sirupsen/logrus"

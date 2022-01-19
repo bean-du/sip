@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/sip/parser"
-	"github.com/bean-du/sip/pkg/testutils"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/sip/parser"
+	"github.com/vsmcn/sip/pkg/testutils"
 )
 
 // Level of logs output during testing.

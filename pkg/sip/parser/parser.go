@@ -11,9 +11,9 @@ import (
 	"unicode"
 	"unicode/utf8"
 
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/util"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/util"
 )
 
 // The whitespace characters recognised by the Augmented Backus-Naur Form syntax

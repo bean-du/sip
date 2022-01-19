@@ -8,11 +8,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/sip/parser"
-	"github.com/bean-du/sip/pkg/timing"
-	"github.com/bean-du/sip/pkg/util"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/sip/parser"
+	"github.com/vsmcn/sip/pkg/timing"
+	"github.com/vsmcn/sip/pkg/util"
 )
 
 type ConnectionKey string

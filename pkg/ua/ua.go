@@ -6,15 +6,15 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/bean-du/sip/pkg/account"
-	"github.com/bean-du/sip/pkg/auth"
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/session"
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/stack"
-	"github.com/bean-du/sip/pkg/transaction"
-	"github.com/bean-du/sip/pkg/util"
-	"github.com/bean-du/sip/pkg/utils"
+	"github.com/vsmcn/sip/pkg/account"
+	"github.com/vsmcn/sip/pkg/auth"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/session"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/stack"
+	"github.com/vsmcn/sip/pkg/transaction"
+	"github.com/vsmcn/sip/pkg/util"
+	"github.com/vsmcn/sip/pkg/utils"
 )
 
 // UserAgentConfig .

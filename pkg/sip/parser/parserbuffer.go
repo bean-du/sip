@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/bean-du/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/log"
 )
 
 // parserBuffer is a specialized buffer for use in the parser.

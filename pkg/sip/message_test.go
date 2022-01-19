@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/bean-du/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/sip"
 )
 
 // Generic test for testing anything with a String() method.

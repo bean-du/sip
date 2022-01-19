@@ -8,9 +8,9 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/testutils"
-	"github.com/bean-du/sip/pkg/transaction"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/testutils"
+	"github.com/vsmcn/sip/pkg/transaction"
 )
 
 var _ = Describe("ServerTx", func() {

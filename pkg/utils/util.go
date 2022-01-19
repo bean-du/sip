@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/bean-du/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/sip"
 )
 
 var (

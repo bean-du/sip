@@ -3,7 +3,7 @@ package sip_test
 import (
 	"testing"
 
-	"github.com/bean-du/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/sip"
 )
 
 func TestAddress_Equals(t *testing.T) {

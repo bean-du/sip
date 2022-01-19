@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/bean-du/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/log"
 	"github.com/sirupsen/logrus"
 	prefixed "github.com/x-cray/logrus-prefixed-formatter"
 )

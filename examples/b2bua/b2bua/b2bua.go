@@ -3,19 +3,19 @@ package b2bua
 import (
 	"fmt"
 
-	"github.com/bean-du/sip/examples/b2bua/fcm"
-	"github.com/bean-du/sip/examples/b2bua/pushkit"
-	"github.com/bean-du/sip/examples/b2bua/registry"
-	"github.com/bean-du/sip/pkg/account"
-	"github.com/bean-du/sip/pkg/auth"
-	"github.com/bean-du/sip/pkg/log"
-	"github.com/bean-du/sip/pkg/session"
-	"github.com/bean-du/sip/pkg/sip"
-	"github.com/bean-du/sip/pkg/sip/parser"
-	"github.com/bean-du/sip/pkg/stack"
-	"github.com/bean-du/sip/pkg/transport"
-	"github.com/bean-du/sip/pkg/ua"
-	"github.com/bean-du/sip/pkg/utils"
+	"github.com/vsmcn/sip/examples/b2bua/fcm"
+	"github.com/vsmcn/sip/examples/b2bua/pushkit"
+	"github.com/vsmcn/sip/examples/b2bua/registry"
+	"github.com/vsmcn/sip/pkg/account"
+	"github.com/vsmcn/sip/pkg/auth"
+	"github.com/vsmcn/sip/pkg/log"
+	"github.com/vsmcn/sip/pkg/session"
+	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/sip/parser"
+	"github.com/vsmcn/sip/pkg/stack"
+	"github.com/vsmcn/sip/pkg/transport"
+	"github.com/vsmcn/sip/pkg/ua"
+	"github.com/vsmcn/sip/pkg/utils"
 )
 
 type B2BCall struct {

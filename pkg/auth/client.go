@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/bean-du/sip/pkg/sip"
+	"github.com/vsmcn/sip/pkg/sip"
 )
 
 // currently only Digest and MD5
