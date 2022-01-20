@@ -411,6 +411,13 @@ func (s *Session) makeRequest(uaType string, method sip.RequestMethod, msgID sip
 	to := s.remoteURI.Clone().AsToHeader()
 	newRequest.AppendHeader(to)
 	newRequest.SetRecipient(s.request.Recipient())
+	if method == sip.BYE {
+		target, ok := s.response.Contact()
+		if !ok {
+			return nil
+		}
+		newRequest.SetRecipient(target.Address)
+	}
 	sip.CopyHeaders("Via", inviteRequest, newRequest)
 	newRequest.AppendHeader(s.contact)
 
