@@ -251,6 +251,7 @@ func (s *Session) Bye() error {
 	}
 
 	var route *sip.RouteHeader
+
 	for _, header := range s.response.Headers() {
 		if header.Name() == "Record-Route" {
 			h := header.(*sip.RecordRouteHeader)
@@ -259,7 +260,9 @@ func (s *Session) Bye() error {
 			}
 		}
 	}
-	req.AppendHeader(route)
+	if route != nil {
+		req.AppendHeader(route)
+	}
 	s.sendRequest(req)
 	return nil
 }
