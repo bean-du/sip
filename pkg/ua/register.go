@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/vsmcn/sip/pkg/account"
-	"github.com/vsmcn/sip/pkg/auth"
-	"github.com/vsmcn/sip/pkg/sip"
-	"github.com/vsmcn/sip/pkg/util"
+	"github.com/bean-du/sip/pkg/account"
+	"github.com/bean-du/sip/pkg/auth"
+	"github.com/bean-du/sip/pkg/sip"
+	"github.com/bean-du/sip/pkg/util"
 )
 
 type Register struct {

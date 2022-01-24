@@ -9,8 +9,8 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/vsmcn/sip/pkg/testutils"
-	"github.com/vsmcn/sip/pkg/transport"
+	"github.com/bean-du/sip/pkg/testutils"
+	"github.com/bean-du/sip/pkg/transport"
 )
 
 var _ = Describe("ListenerHandler", func() {

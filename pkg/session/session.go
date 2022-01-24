@@ -2,14 +2,13 @@ package session
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"sync"
 
-	"github.com/vsmcn/sip/pkg/log"
-	"github.com/vsmcn/sip/pkg/sip"
-	"github.com/vsmcn/sip/pkg/util"
-	"github.com/vsmcn/sip/pkg/utils"
+	"github.com/bean-du/sip/pkg/log"
+	"github.com/bean-du/sip/pkg/sip"
+	"github.com/bean-du/sip/pkg/util"
+	"github.com/bean-du/sip/pkg/utils"
 )
 
 type RequestCallback func(ctx context.Context, request sip.Request, authorizer sip.Authorizer, waitForResult bool, attempt int) (sip.Response, error)
@@ -242,29 +241,9 @@ func (s *Session) ReInvite() {
 }
 
 //Bye send Bye request.
-func (s *Session) Bye() error {
-	method := sip.BYE
-	req := s.makeRequest(s.uaType, method, sip.MessageID(s.callID), s.request, s.response)
-
-	if req == nil {
-		return errors.New("can not find remote contact to build request")
-	}
-
-	var route *sip.RouteHeader
-
-	for _, header := range s.response.Headers() {
-		if header.Name() == "Record-Route" {
-			h := header.(*sip.RecordRouteHeader)
-			route = &sip.RouteHeader{
-				Addresses: h.Addresses,
-			}
-		}
-	}
-	if route != nil {
-		req.AppendHeader(route)
-	}
-	s.sendRequest(req)
-	return nil
+func (s *Session) Bye() (sip.Response, error) {
+	req := s.makeRequest(s.uaType, sip.BYE, sip.MessageID(s.callID), s.request, s.response)
+	return s.sendRequest(req)
 }
 
 func (s *Session) sendRequest(req sip.Request) (sip.Response, error) {
@@ -272,7 +251,7 @@ func (s *Session) sendRequest(req sip.Request) (sip.Response, error) {
 	return s.requestCallbck(context.TODO(), req, nil, false, 1)
 }
 
-// Reject reject incoming call or for re-INVITE or UPDATE,
+// Reject Reject incoming call or for re-INVITE or UPDATE,
 func (s *Session) Reject(statusCode sip.StatusCode, reason string) {
 	tx := (s.transaction.(sip.ServerTransaction))
 	request := s.request
@@ -383,23 +362,12 @@ func (s *Session) Provisional(statusCode sip.StatusCode, reason string) {
 }
 
 func (s *Session) makeRequest(uaType string, method sip.RequestMethod, msgID sip.MessageID, inviteRequest sip.Request, inviteResponse sip.Response) sip.Request {
-	var (
-		targetAddr sip.Uri
-	)
-
-	targetAddr = s.remoteTarget
-	if method == sip.BYE {
-		target, ok := s.response.Contact()
-		if !ok {
-			return nil
-		}
-		targetAddr = target.Address
-	}
+	var rh *sip.RouteHeader
 
 	newRequest := sip.NewRequest(
 		msgID,
 		method,
-		targetAddr,
+		s.remoteTarget,
 		inviteRequest.SipVersion(),
 		[]sip.Header{},
 		"",
@@ -414,17 +382,19 @@ func (s *Session) makeRequest(uaType string, method sip.RequestMethod, msgID sip
 	to := s.remoteURI.Clone().AsToHeader()
 	newRequest.AppendHeader(to)
 	newRequest.SetRecipient(s.request.Recipient())
-	if method == sip.BYE {
-		target, ok := s.response.Contact()
-		if !ok {
-			return nil
-		}
-		newRequest.SetRecipient(target.Address)
-	}
 	sip.CopyHeaders("Via", inviteRequest, newRequest)
 	newRequest.AppendHeader(s.contact)
 
 	if uaType == "UAC" {
+		for _, header := range s.response.Headers() {
+			if header.Name() == "Record-Route" {
+				h := header.(*sip.RecordRouteHeader)
+				rh = &sip.RouteHeader{
+					Addresses: h.Addresses,
+				}
+			}
+		}
+		newRequest.AppendHeader(rh)
 		if len(inviteRequest.GetHeaders("Route")) > 0 {
 			sip.CopyHeaders("Route", inviteRequest, newRequest)
 		}

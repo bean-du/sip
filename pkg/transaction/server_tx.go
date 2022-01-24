@@ -7,9 +7,9 @@ import (
 
 	"github.com/discoviking/fsm"
 
-	"github.com/vsmcn/sip/pkg/log"
-	"github.com/vsmcn/sip/pkg/sip"
-	"github.com/vsmcn/sip/pkg/timing"
+	"github.com/bean-du/sip/pkg/log"
+	"github.com/bean-du/sip/pkg/sip"
+	"github.com/bean-du/sip/pkg/timing"
 )
 
 type ServerTx interface {

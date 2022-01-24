@@ -10,14 +10,15 @@ import (
 	"sync"
 	"time"
 
+	"github.com/bean-du/sip/pkg/auth"
 	"github.com/tevino/abool"
-	"github.com/vsmcn/sip/pkg/auth"
-	"github.com/vsmcn/sip/pkg/log"
-	"github.com/vsmcn/sip/pkg/sip"
-	"github.com/vsmcn/sip/pkg/transaction"
-	"github.com/vsmcn/sip/pkg/transport"
-	"github.com/vsmcn/sip/pkg/util"
-	"github.com/vsmcn/sip/pkg/utils"
+
+	"github.com/bean-du/sip/pkg/log"
+	"github.com/bean-du/sip/pkg/sip"
+	"github.com/bean-du/sip/pkg/transaction"
+	"github.com/bean-du/sip/pkg/transport"
+	"github.com/bean-du/sip/pkg/util"
+	"github.com/bean-du/sip/pkg/utils"
 )
 
 const (
@@ -372,16 +373,11 @@ func (s *SipStack) prepareRequest(req sip.Request) sip.Request {
 		if !viaHop.Params.Has("branch") {
 			viaHop.Params.Add("branch", sip.String{Str: sip.GenerateBranch()})
 		}
-		if !viaHop.Params.Has("rport") {
-			viaHop.Params.Add("rport", nil)
-		}
 	} else {
 		viaHop = &sip.ViaHop{
 			ProtocolName:    "SIP",
 			ProtocolVersion: "2.0",
-
 			Params: sip.NewParams().
-				Add("rport", nil).
 				Add("branch", sip.String{Str: sip.GenerateBranch()}),
 		}
 

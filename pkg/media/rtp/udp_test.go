@@ -5,9 +5,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/vsmcn/sip/pkg/media/rtp"
+	"github.com/bean-du/sip/pkg/media/rtp"
 
-	"github.com/ghettovoice/gosip/log"
+	"github.com/bean-du/sip/pkg/log"
 	"github.com/sirupsen/logrus"
 	prefixed "github.com/x-cray/logrus-prefixed-formatter"
 )

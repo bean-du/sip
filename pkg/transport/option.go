@@ -3,8 +3,8 @@ package transport
 import (
 	"net"
 
-	"github.com/vsmcn/sip/pkg/log"
-	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/bean-du/sip/pkg/log"
+	"github.com/bean-du/sip/pkg/sip"
 )
 
 // TODO migrate other factories to functional arguments

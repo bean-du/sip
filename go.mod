@@ -1,11 +1,12 @@
-module github.com/vsmcn/sip
+module github.com/bean-du/sip
 
 go 1.13
 
 require (
-	cloud.google.com/go/firestore v1.6.1 // indirect
 	firebase.google.com/go v3.13.0+incompatible
+	github.com/bean-du/sip v0.1.9
 	github.com/c-bata/go-prompt v0.2.6
+	github.com/cloudwebrtc/go-sip-ua v1.1.5
 	github.com/discoviking/fsm v0.0.0-20150126104936-f4a273feecca
 	github.com/ghettovoice/gosip v0.0.0-20211014110559-f0c4b77a298b
 	github.com/gobwas/ws v1.1.0-rc.1

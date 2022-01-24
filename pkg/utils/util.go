@@ -8,13 +8,23 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/vsmcn/sip/pkg/sip"
+	"github.com/bean-du/sip/pkg/sip"
 )
 
 var (
 	localIPPrefix = [...]string{"192.168", "10.0", "169.254", "172.16"}
 	ErrPort       = errors.New("invalid port")
 )
+
+func GetBranchID(msg sip.Message) sip.MaybeString {
+	if viaHop, ok := msg.ViaHop(); ok {
+		if branch, ok := viaHop.Params.Get("branch"); ok {
+			return branch
+		}
+	}
+
+	return nil
+}
 
 func GetIP(addr string) string {
 	if strings.Contains(addr, ":") {

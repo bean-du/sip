@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/vsmcn/sip/pkg/log"
-	"github.com/vsmcn/sip/pkg/sip"
-	"github.com/vsmcn/sip/pkg/sip/parser"
+	"github.com/bean-du/sip/pkg/log"
+	"github.com/bean-du/sip/pkg/sip"
+	"github.com/bean-du/sip/pkg/sip/parser"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
